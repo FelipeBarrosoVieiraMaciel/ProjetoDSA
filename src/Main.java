@@ -4,6 +4,8 @@ import java.text.Normalizer;
 import java.util.Scanner;
 
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -14,7 +16,7 @@ public class Main {
             Scanner scannerPalavras = new Scanner(arquivoPalavras);
 
             while(scannerPalavras.hasNextLine()) {
-                String palavra = cleanString(scannerPalavras.nextLine());
+                String palavra = cleanString(scannerPalavras.nextLine()); // A palavra entra no hashmap já formatada, exemplo - João11 entra joao
                 hashMap.insere(palavra);
             }
 
@@ -26,13 +28,19 @@ public class Main {
             return;
         }
 
-        try {
+        try { //
             File arquivo = new File("src/texto.txt");
             Scanner input = new Scanner(arquivo);
-
+            int numeroLinha = 1;
             while(input.hasNextLine()) {
-                String palavra = cleanString(input.nextLine());
-                hashMap.insere(palavra);
+                String[] linha = input.nextLine().split(" ");
+                for(int i = 0; i < linha.length; i++) {
+                    String palavra = cleanString(linha[i]);
+
+                    hashMap.contem(palavra,numeroLinha);
+                }
+
+                numeroLinha++;
             }
 
 

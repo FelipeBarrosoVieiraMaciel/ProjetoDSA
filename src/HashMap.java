@@ -3,8 +3,8 @@ import java.io.IOException;
 
 public class HashMap {
 
-    public ArvoreBinBusca[] vetor;
-    public int nElementos;
+    ArvoreBinBusca[] vetor;
+    int nElementos;
 
     public HashMap(int capacidade) { // Construtor do hash map, inicializa as instâncias de ABB
         this.vetor = new ArvoreBinBusca[capacidade];
