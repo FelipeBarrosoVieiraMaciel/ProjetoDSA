@@ -3,11 +3,11 @@ import java.io.IOException;
 
 public class ArvoreBinBusca {
 
-    class Nodo {
+    public class Nodo {
 
-        public PalavraChave palavra;
-        public Nodo esquerdo;
-        public Nodo direito;
+        PalavraChave palavra;
+        Nodo esquerdo;
+        Nodo direito;
 
         public Nodo(PalavraChave palavra) {
             this.palavra = palavra;
@@ -16,8 +16,8 @@ public class ArvoreBinBusca {
         }
     }
 
-    public Nodo raiz;
-    public int n_elementos;
+    Nodo raiz;
+    int n_elementos;
 
     public ArvoreBinBusca() {
         this.raiz = null;
@@ -58,21 +58,6 @@ public class ArvoreBinBusca {
                 this.insere(palavra, nodo.direito);
             }
         }
-    }
-
-    private int altura(Nodo nodo) {
-
-        if (nodo == null) {
-            return -1;
-        }
-
-        int alturaEsquerda = this.altura(nodo.esquerdo) + 1;
-        int alturaDireita = this.altura(nodo.direito) + 1;
-
-        int altura = alturaEsquerda > alturaDireita ? alturaEsquerda : alturaDireita;
-
-        return altura;
-
     }
 
     public PalavraChave busca(String elemento, int linha) {
