@@ -3,9 +3,6 @@ import java.io.FileWriter;
 import java.text.Normalizer;
 import java.util.Scanner;
 
-
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -34,12 +31,12 @@ public class Main {
             int numeroLinha = 1;
             while(input.hasNextLine()) {
                 String[] linha = input.nextLine().split(" ");
+
                 for(int i = 0; i < linha.length; i++) {
                     String palavra = cleanString(linha[i]);
 
                     hashMap.contem(palavra,numeroLinha);
                 }
-
                 numeroLinha++;
             }
 
@@ -71,6 +68,11 @@ public class Main {
 
         // Mantém apenas letras de a-z
         formatada = formatada.replaceAll("[^a-z-]","");
+
+
+        if (formatada.endsWith("s") && formatada.length() > 1) {
+            formatada = formatada.substring(0, formatada.length() - 1);
+        }
 
         return formatada;
     }
