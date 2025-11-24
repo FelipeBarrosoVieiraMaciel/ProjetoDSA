@@ -45,16 +45,6 @@ public class ListaEncadeada {
         n_elementos++;
     }
 
-    public void imprimirLista() {
-        Nodo atual = primeiro;
-        System.out.print("Ocorrências: ");
-        while (atual != null) {
-            System.out.print(atual.elemento + " ");
-            atual = atual.proximo;
-        }
-        System.out.println();
-    }
-
     public boolean contem(int elemento) {
 
         Nodo cursor = this.primeiro;
